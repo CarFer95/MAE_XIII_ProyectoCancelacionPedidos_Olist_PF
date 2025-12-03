@@ -1,0 +1,153 @@
+2025-12-03 15:46:31,131 [INFO] 🚀 PIPELINE CANCELACIONES - RUN_ID=20251203_154631
+2025-12-03 15:46:31,132 [INFO] 📂 Directorio de evidencia: reports\20251203_154631
+2025-12-03 15:46:31,132 [INFO] 
+==============================
+2025-12-03 15:46:31,132 [INFO]    PIPELINE CANCELACIONES
+2025-12-03 15:46:31,132 [INFO] ==============================
+2025-12-03 15:46:31,133 [INFO] 1) Solo BRONZE
+2025-12-03 15:46:31,133 [INFO] 2) BRONZE + SILVER
+2025-12-03 15:46:31,133 [INFO] 3) BRONZE + SILVER + GOLD + Comparativa
+2025-12-03 15:46:31,133 [INFO] 4) Solo GOLD
+2025-12-03 15:46:31,134 [INFO] 5) Simular nuevo mes
+2025-12-03 15:46:31,134 [INFO] 0) Salir
+2025-12-03 15:46:31,134 [INFO] ==============================
+2025-12-03 15:46:31,136 [INFO] Elige una opción:
+2025-12-03 15:46:34,840 [INFO] 
+=== OPCIÓN 1: Solo BRONZE ===
+2025-12-03 15:46:34,840 [INFO] Archivos encontrados en la carpeta base:
+2025-12-03 15:46:34,841 [INFO] ['olist_customers_dataset.csv', 'olist_geolocation_dataset.csv', 'olist_orders_dataset.csv', 'olist_order_items_dataset.csv', 'olist_order_payments_dataset.csv', 'olist_order_reviews_dataset.csv', 'olist_products_dataset.csv', 'olist_sellers_dataset.csv', 'product_category_name_translation.csv']
+2025-12-03 15:46:34,841 [INFO] 
+Todos los datasets requeridos están en la carpeta base.
+2025-12-03 15:46:34,842 [INFO] 
+Diccionario FILES creado. Ejemplo:
+2025-12-03 15:46:34,842 [INFO] olist_customers_dataset.csv
+2025-12-03 15:46:34,842 [INFO] ->
+2025-12-03 15:46:34,843 [INFO] ./data/bronze/olist_customers_dataset.csv
+2025-12-03 15:46:34,843 [INFO] olist_geolocation_dataset.csv
+2025-12-03 15:46:34,843 [INFO] ->
+2025-12-03 15:46:34,844 [INFO] ./data/bronze/olist_geolocation_dataset.csv
+2025-12-03 15:46:34,844 [INFO] olist_order_items_dataset.csv
+2025-12-03 15:46:34,844 [INFO] ->
+2025-12-03 15:46:34,845 [INFO] ./data/bronze/olist_order_items_dataset.csv
+2025-12-03 15:46:36,130 [ERROR] D:\MAESTRIA - DATA SCIENCE\MODULO_XIII\Proyecto\Sprint_04\ProyectoFinal\proyecto_cancelacionesv4\src\bronze\load_raw.py:73: FutureWarning: The argument 'infer_datetime_format' is deprecated and will be removed in a future version. A strict version of it is now the default, see https://pandas.pydata.org/pdeps/0004-consistent-to-datetime-parsing.html. You can safely remove this argument.
+  orders = pd.read_csv(
+2025-12-03 15:46:36,583 [INFO] Shapes de tablas cargadas:
+2025-12-03 15:46:36,584 [INFO] - customers:
+2025-12-03 15:46:36,584 [INFO] (99441, 5)
+2025-12-03 15:46:36,584 [INFO] - geo:
+2025-12-03 15:46:36,584 [INFO] (1000163, 5)
+2025-12-03 15:46:36,585 [INFO] - order_items:
+2025-12-03 15:46:36,585 [INFO] (112650, 7)
+2025-12-03 15:46:36,585 [INFO] - order_payments:
+2025-12-03 15:46:36,585 [INFO] (103886, 5)
+2025-12-03 15:46:36,585 [INFO] - reviews:
+2025-12-03 15:46:36,586 [INFO] (99224, 7)
+2025-12-03 15:46:36,586 [INFO] - orders:
+2025-12-03 15:46:36,586 [INFO] (99441, 8)
+2025-12-03 15:46:36,586 [INFO] - products:
+2025-12-03 15:46:36,587 [INFO] (32951, 9)
+2025-12-03 15:46:36,587 [INFO] - sellers:
+2025-12-03 15:46:36,587 [INFO] (3095, 4)
+2025-12-03 15:46:36,587 [INFO] - cat_trad:
+2025-12-03 15:46:36,588 [INFO] (71, 2)
+2025-12-03 15:46:36,588 [INFO] 
+Columnas de orders:
+2025-12-03 15:46:36,588 [INFO] ['order_id', 'customer_id', 'order_status', 'order_purchase_timestamp', 'order_approved_at', 'order_delivered_carrier_date', 'order_delivered_customer_date', 'order_estimated_delivery_date']
+2025-12-03 15:46:36,588 [INFO] 
+Estado de las fechas en orders:
+2025-12-03 15:46:36,590 [INFO] order_purchase_timestamp         datetime64[ns]
+order_approved_at                datetime64[ns]
+order_delivered_carrier_date     datetime64[ns]
+order_delivered_customer_date    datetime64[ns]
+order_estimated_delivery_date    datetime64[ns]
+dtype: object
+2025-12-03 15:46:36,611 [INFO] Tasa estricta (solo 'canceled'):
+2025-12-03 15:46:36,611 [INFO] 0.0063
+2025-12-03 15:46:36,612 [INFO] Tasa extendida:
+2025-12-03 15:46:36,612 [INFO] 0.0155
+2025-12-03 15:46:36,612 [INFO] 
+Conteo target extendido:
+2025-12-03 15:46:36,614 [INFO] order_canceled_extended
+0    97901
+1     1540
+Name: count, dtype: int64
+2025-12-03 15:46:36,614 [INFO] 
+Cruce order_status vs target extendido:
+2025-12-03 15:46:36,630 [INFO] order_canceled_extended      0    1
+order_status                       
+approved                     2    0
+canceled                     0  625
+created                      0    5
+delivered                96478    0
+invoiced                   314    0
+processing                   0  301
+shipped                   1107    0
+unavailable                  0  609
+2025-12-03 15:46:36,633 [INFO] Iniciando construcción de la Master Table...
+2025-12-03 15:46:36,643 [INFO] Duplicados en order_id (orders):
+2025-12-03 15:46:36,643 [INFO] 0
+2025-12-03 15:46:36,654 [INFO] Duplicados en customer_id (customers):
+2025-12-03 15:46:36,655 [INFO] 0
+2025-12-03 15:46:36,655 [INFO] Duplicados en seller_id (sellers):
+2025-12-03 15:46:36,656 [INFO] 0
+2025-12-03 15:46:36,658 [INFO] Duplicados en product_id (products):
+2025-12-03 15:46:36,658 [INFO] 0
+2025-12-03 15:46:37,317 [INFO] 
+Shape tras merge:
+2025-12-03 15:46:37,318 [INFO] (119143, 42)
+2025-12-03 15:46:37,318 [INFO] 
+Proporción de nulos por tabla clave:
+2025-12-03 15:46:37,344 [INFO] customer_id     0.000
+seller_id       0.007
+product_id      0.007
+payment_type    0.000
+review_score    0.008
+dtype: float64
+2025-12-03 15:46:37,344 [INFO] 
+Vista rápida de la tabla unificada:
+2025-12-03 15:46:37,373 [INFO]                            order_id                       customer_id order_status order_purchase_timestamp  ... seller_zip_code_prefix     seller_city seller_state product_category_name_english
+0  e481f51cbdc54678b7cc49136f2d6af7  9ef432eb6251297304e76186b10a928d    delivered      2017-10-02 10:56:33  ...                 9350.0            maua           SP                    housewares
+1  e481f51cbdc54678b7cc49136f2d6af7  9ef432eb6251297304e76186b10a928d    delivered      2017-10-02 10:56:33  ...                 9350.0            maua           SP                    housewares
+2  e481f51cbdc54678b7cc49136f2d6af7  9ef432eb6251297304e76186b10a928d    delivered      2017-10-02 10:56:33  ...                 9350.0            maua           SP                    housewares
+3  53cdb2fc8bc7dce0b6741e2150273451  b0830fb4747a6c6d20dea0b8c802d7ef    delivered      2018-07-24 20:41:37  ...                31570.0  belo horizonte           SP                     perfumery
+4  47770eb9100c2d0c44946d9cf07ec65d  41ce2a54c0b03bf3443c3d931a367089    delivered      2018-08-08 08:38:49  ...                14840.0         guariba           SP                          auto
+
+[5 rows x 42 columns]
+2025-12-03 15:46:37,435 [INFO] Creando features...
+2025-12-03 15:46:55,355 [INFO] 
+Features creadas. Shape final:
+2025-12-03 15:46:55,355 [INFO] (119143, 116)
+2025-12-03 15:46:55,416 [INFO] Número de variables numéricas actuales:
+2025-12-03 15:46:55,416 [INFO] 86
+2025-12-03 15:47:04,830 [INFO] Archivo guardado en:
+2025-12-03 15:47:04,830 [INFO] ./data/silver/orders_extended_master.csv
+2025-12-03 15:47:04,831 [INFO] Shape final del archivo:
+2025-12-03 15:47:04,831 [INFO] (119143, 116)
+2025-12-03 15:47:04,831 [INFO] 
+Proporción de nulos:
+2025-12-03 15:47:04,948 [INFO] order_id                    0.000
+customer_id                 0.000
+order_status                0.000
+order_purchase_timestamp    0.000
+order_approved_at           0.001
+                            ...  
+risk_long_distance          0.000
+risk_low_review             0.000
+risk_many_installments      0.000
+risk_weekend_purchase       0.000
+risk_high_freight_ratio     0.000
+Length: 116, dtype: float64
+2025-12-03 15:47:04,948 [INFO] 
+Ejemplo de columnas del dataset:
+2025-12-03 15:47:04,949 [INFO] Index(['order_id', 'customer_id', 'order_status', 'order_purchase_timestamp',
+       'order_approved_at', 'order_delivered_carrier_date',
+       'order_delivered_customer_date', 'order_estimated_delivery_date',
+       'is_canceled_strict', 'order_canceled_extended', 'customer_unique_id',
+       'customer_zip_code_prefix', 'customer_city', 'customer_state',
+       'order_item_id', 'product_id', 'seller_id', 'shipping_limit_date',
+       'price', 'freight_value'],
+      dtype='object')
+2025-12-03 15:47:04,969 [INFO] [BRONZE] Master generado en: ./data/silver/orders_extended_master.csv
+2025-12-03 15:47:04,969 [INFO] [BRONZE] Shape master: (119143, 116)
+2025-12-03 15:47:05,000 [INFO] 📘 Generando notebook de evidencia: reports\20251203_154631\reporte_pipeline_20251203_154631.ipynb
+2025-12-03 15:47:07,652 [INFO] ✅ Notebook de evidencia generado correctamente.

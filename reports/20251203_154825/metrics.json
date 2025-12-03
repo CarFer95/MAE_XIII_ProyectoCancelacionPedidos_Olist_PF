@@ -1,0 +1,50 @@
+{
+    "option": "full_pipeline_with_comparison",
+    "bronze": {
+        "master_path": "./data/silver/orders_extended_master.csv",
+        "master_shape": [
+            119143,
+            116
+        ]
+    },
+    "silver_metrics_backtest": {
+        "accuracy": 0.9947475799800322,
+        "precision": 0.6694915254237288,
+        "recall": 0.4906832298136646,
+        "f1": 0.5663082437275986,
+        "roc_auc": 0.9705807925852477,
+        "gini": 0.9411615851704953
+    },
+    "gold_rf_metrics_backtest": {
+        "accuracy": 0.9953552979988713,
+        "precision": 1.0,
+        "recall": 0.33540372670807456,
+        "f1": 0.5023255813953489,
+        "roc_auc": 0.9223784399609452,
+        "gini": 0.8447568799218903
+    },
+    "gold_xgb_baseline_metrics_backtest": {
+        "accuracy": 0.9950080305595347,
+        "precision": 0.6597222222222222,
+        "recall": 0.5900621118012422,
+        "f1": 0.6229508196721312,
+        "roc_auc": 0.9769345181529585,
+        "gini": 0.953869036305917
+    },
+    "gold_xgb_tuned_metrics_backtest": {
+        "accuracy": 0.9839822893605938,
+        "precision": 0.27292576419213976,
+        "recall": 0.7763975155279503,
+        "f1": 0.40387722132471726,
+        "roc_auc": 0.9837739842890485,
+        "gini": 0.967547968578097
+    },
+    "gold_xgb_tuned_metrics_final": {
+        "accuracy": 0.9892344497607656,
+        "precision": 0.5441176470588235,
+        "recall": 0.7956989247311828,
+        "f1": 0.6462882096069869,
+        "roc_auc": 0.9805103004993612,
+        "gini": 0.9610206009987223
+    }
+}

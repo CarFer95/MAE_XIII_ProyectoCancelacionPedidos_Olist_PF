@@ -1,0 +1,8 @@
+{
+    "option": "bronze_only",
+    "master_path": "./data/silver/orders_extended_master.csv",
+    "master_shape": [
+        119143,
+        116
+    ]
+}

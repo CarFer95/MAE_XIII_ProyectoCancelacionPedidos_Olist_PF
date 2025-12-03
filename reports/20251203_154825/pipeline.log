@@ -1,0 +1,355 @@
+2025-12-03 15:48:25,671 [INFO] 🚀 PIPELINE CANCELACIONES - RUN_ID=20251203_154825
+2025-12-03 15:48:25,672 [INFO] 📂 Directorio de evidencia: reports\20251203_154825
+2025-12-03 15:48:25,672 [INFO] 
+==============================
+2025-12-03 15:48:25,672 [INFO]    PIPELINE CANCELACIONES
+2025-12-03 15:48:25,672 [INFO] ==============================
+2025-12-03 15:48:25,673 [INFO] 1) Solo BRONZE
+2025-12-03 15:48:25,673 [INFO] 2) BRONZE + SILVER
+2025-12-03 15:48:25,673 [INFO] 3) BRONZE + SILVER + GOLD + Comparativa
+2025-12-03 15:48:25,673 [INFO] 4) Solo GOLD
+2025-12-03 15:48:25,673 [INFO] 5) Simular nuevo mes
+2025-12-03 15:48:25,674 [INFO] 0) Salir
+2025-12-03 15:48:25,674 [INFO] ==============================
+2025-12-03 15:48:25,676 [INFO] Elige una opción:
+2025-12-03 15:48:29,555 [INFO] 
+=== OPCIÓN 3: BRONZE + SILVER + GOLD + COMPARATIVA ===
+2025-12-03 15:48:29,555 [INFO] Archivos encontrados en la carpeta base:
+2025-12-03 15:48:29,556 [INFO] ['olist_customers_dataset.csv', 'olist_geolocation_dataset.csv', 'olist_orders_dataset.csv', 'olist_order_items_dataset.csv', 'olist_order_payments_dataset.csv', 'olist_order_reviews_dataset.csv', 'olist_products_dataset.csv', 'olist_sellers_dataset.csv', 'product_category_name_translation.csv']
+2025-12-03 15:48:29,556 [INFO] 
+Todos los datasets requeridos están en la carpeta base.
+2025-12-03 15:48:29,556 [INFO] 
+Diccionario FILES creado. Ejemplo:
+2025-12-03 15:48:29,557 [INFO] olist_customers_dataset.csv
+2025-12-03 15:48:29,557 [INFO] ->
+2025-12-03 15:48:29,557 [INFO] ./data/bronze/olist_customers_dataset.csv
+2025-12-03 15:48:29,557 [INFO] olist_geolocation_dataset.csv
+2025-12-03 15:48:29,557 [INFO] ->
+2025-12-03 15:48:29,558 [INFO] ./data/bronze/olist_geolocation_dataset.csv
+2025-12-03 15:48:29,558 [INFO] olist_order_items_dataset.csv
+2025-12-03 15:48:29,558 [INFO] ->
+2025-12-03 15:48:29,558 [INFO] ./data/bronze/olist_order_items_dataset.csv
+2025-12-03 15:48:30,793 [ERROR] D:\MAESTRIA - DATA SCIENCE\MODULO_XIII\Proyecto\Sprint_04\ProyectoFinal\proyecto_cancelacionesv4\src\bronze\load_raw.py:73: FutureWarning: The argument 'infer_datetime_format' is deprecated and will be removed in a future version. A strict version of it is now the default, see https://pandas.pydata.org/pdeps/0004-consistent-to-datetime-parsing.html. You can safely remove this argument.
+  orders = pd.read_csv(
+2025-12-03 15:48:31,233 [INFO] Shapes de tablas cargadas:
+2025-12-03 15:48:31,233 [INFO] - customers:
+2025-12-03 15:48:31,233 [INFO] (99441, 5)
+2025-12-03 15:48:31,234 [INFO] - geo:
+2025-12-03 15:48:31,234 [INFO] (1000163, 5)
+2025-12-03 15:48:31,234 [INFO] - order_items:
+2025-12-03 15:48:31,235 [INFO] (112650, 7)
+2025-12-03 15:48:31,235 [INFO] - order_payments:
+2025-12-03 15:48:31,235 [INFO] (103886, 5)
+2025-12-03 15:48:31,235 [INFO] - reviews:
+2025-12-03 15:48:31,236 [INFO] (99224, 7)
+2025-12-03 15:48:31,236 [INFO] - orders:
+2025-12-03 15:48:31,236 [INFO] (99441, 8)
+2025-12-03 15:48:31,236 [INFO] - products:
+2025-12-03 15:48:31,236 [INFO] (32951, 9)
+2025-12-03 15:48:31,237 [INFO] - sellers:
+2025-12-03 15:48:31,237 [INFO] (3095, 4)
+2025-12-03 15:48:31,237 [INFO] - cat_trad:
+2025-12-03 15:48:31,237 [INFO] (71, 2)
+2025-12-03 15:48:31,237 [INFO] 
+Columnas de orders:
+2025-12-03 15:48:31,238 [INFO] ['order_id', 'customer_id', 'order_status', 'order_purchase_timestamp', 'order_approved_at', 'order_delivered_carrier_date', 'order_delivered_customer_date', 'order_estimated_delivery_date']
+2025-12-03 15:48:31,238 [INFO] 
+Estado de las fechas en orders:
+2025-12-03 15:48:31,241 [INFO] order_purchase_timestamp         datetime64[ns]
+order_approved_at                datetime64[ns]
+order_delivered_carrier_date     datetime64[ns]
+order_delivered_customer_date    datetime64[ns]
+order_estimated_delivery_date    datetime64[ns]
+dtype: object
+2025-12-03 15:48:31,262 [INFO] Tasa estricta (solo 'canceled'):
+2025-12-03 15:48:31,262 [INFO] 0.0063
+2025-12-03 15:48:31,263 [INFO] Tasa extendida:
+2025-12-03 15:48:31,263 [INFO] 0.0155
+2025-12-03 15:48:31,264 [INFO] 
+Conteo target extendido:
+2025-12-03 15:48:31,266 [INFO] order_canceled_extended
+0    97901
+1     1540
+Name: count, dtype: int64
+2025-12-03 15:48:31,266 [INFO] 
+Cruce order_status vs target extendido:
+2025-12-03 15:48:31,287 [INFO] order_canceled_extended      0    1
+order_status                       
+approved                     2    0
+canceled                     0  625
+created                      0    5
+delivered                96478    0
+invoiced                   314    0
+processing                   0  301
+shipped                   1107    0
+unavailable                  0  609
+2025-12-03 15:48:31,290 [INFO] Iniciando construcción de la Master Table...
+2025-12-03 15:48:31,301 [INFO] Duplicados en order_id (orders):
+2025-12-03 15:48:31,302 [INFO] 0
+2025-12-03 15:48:31,312 [INFO] Duplicados en customer_id (customers):
+2025-12-03 15:48:31,312 [INFO] 0
+2025-12-03 15:48:31,313 [INFO] Duplicados en seller_id (sellers):
+2025-12-03 15:48:31,313 [INFO] 0
+2025-12-03 15:48:31,316 [INFO] Duplicados en product_id (products):
+2025-12-03 15:48:31,317 [INFO] 0
+2025-12-03 15:48:31,977 [INFO] 
+Shape tras merge:
+2025-12-03 15:48:31,977 [INFO] (119143, 42)
+2025-12-03 15:48:31,978 [INFO] 
+Proporción de nulos por tabla clave:
+2025-12-03 15:48:32,005 [INFO] customer_id     0.000
+seller_id       0.007
+product_id      0.007
+payment_type    0.000
+review_score    0.008
+dtype: float64
+2025-12-03 15:48:32,005 [INFO] 
+Vista rápida de la tabla unificada:
+2025-12-03 15:48:32,033 [INFO]                            order_id                       customer_id order_status order_purchase_timestamp  ... seller_zip_code_prefix     seller_city seller_state product_category_name_english
+0  e481f51cbdc54678b7cc49136f2d6af7  9ef432eb6251297304e76186b10a928d    delivered      2017-10-02 10:56:33  ...                 9350.0            maua           SP                    housewares
+1  e481f51cbdc54678b7cc49136f2d6af7  9ef432eb6251297304e76186b10a928d    delivered      2017-10-02 10:56:33  ...                 9350.0            maua           SP                    housewares
+2  e481f51cbdc54678b7cc49136f2d6af7  9ef432eb6251297304e76186b10a928d    delivered      2017-10-02 10:56:33  ...                 9350.0            maua           SP                    housewares
+3  53cdb2fc8bc7dce0b6741e2150273451  b0830fb4747a6c6d20dea0b8c802d7ef    delivered      2018-07-24 20:41:37  ...                31570.0  belo horizonte           SP                     perfumery
+4  47770eb9100c2d0c44946d9cf07ec65d  41ce2a54c0b03bf3443c3d931a367089    delivered      2018-08-08 08:38:49  ...                14840.0         guariba           SP                          auto
+
+[5 rows x 42 columns]
+2025-12-03 15:48:32,116 [INFO] Creando features...
+2025-12-03 15:48:51,235 [INFO] 
+Features creadas. Shape final:
+2025-12-03 15:48:51,235 [INFO] (119143, 116)
+2025-12-03 15:48:51,301 [INFO] Número de variables numéricas actuales:
+2025-12-03 15:48:51,301 [INFO] 86
+2025-12-03 15:49:00,512 [INFO] Archivo guardado en:
+2025-12-03 15:49:00,512 [INFO] ./data/silver/orders_extended_master.csv
+2025-12-03 15:49:00,513 [INFO] Shape final del archivo:
+2025-12-03 15:49:00,513 [INFO] (119143, 116)
+2025-12-03 15:49:00,513 [INFO] 
+Proporción de nulos:
+2025-12-03 15:49:00,638 [INFO] order_id                    0.000
+customer_id                 0.000
+order_status                0.000
+order_purchase_timestamp    0.000
+order_approved_at           0.001
+                            ...  
+risk_long_distance          0.000
+risk_low_review             0.000
+risk_many_installments      0.000
+risk_weekend_purchase       0.000
+risk_high_freight_ratio     0.000
+Length: 116, dtype: float64
+2025-12-03 15:49:00,638 [INFO] 
+Ejemplo de columnas del dataset:
+2025-12-03 15:49:00,639 [INFO] Index(['order_id', 'customer_id', 'order_status', 'order_purchase_timestamp',
+       'order_approved_at', 'order_delivered_carrier_date',
+       'order_delivered_customer_date', 'order_estimated_delivery_date',
+       'is_canceled_strict', 'order_canceled_extended', 'customer_unique_id',
+       'customer_zip_code_prefix', 'customer_city', 'customer_state',
+       'order_item_id', 'product_id', 'seller_id', 'shipping_limit_date',
+       'price', 'freight_value'],
+      dtype='object')
+2025-12-03 15:49:00,659 [INFO] [BRONZE] Master generado en: ./data/silver/orders_extended_master.csv
+2025-12-03 15:49:00,660 [INFO] [BRONZE] Shape master: (119143, 116)
+2025-12-03 15:49:03,023 [INFO] Shape df_master:
+2025-12-03 15:49:03,023 [INFO] (119143, 116)
+2025-12-03 15:49:03,024 [INFO] 
+Distribución del target:
+2025-12-03 15:49:03,026 [INFO] order_canceled_extended
+0    0.985
+1    0.015
+Name: proportion, dtype: float64
+2025-12-03 15:49:03,067 [INFO] 
+Shape X:
+2025-12-03 15:49:03,067 [INFO] (119143, 111)
+2025-12-03 15:49:03,067 [INFO] Primeras columnas X:
+2025-12-03 15:49:03,068 [INFO] Index(['customer_id', 'order_approved_at', 'order_delivered_carrier_date',
+       'order_delivered_customer_date', 'order_estimated_delivery_date',
+       'customer_unique_id', 'customer_zip_code_prefix', 'customer_city',
+       'customer_state', 'order_item_id', 'product_id', 'seller_id',
+       'shipping_limit_date', 'price', 'freight_value'],
+      dtype='object')
+2025-12-03 15:49:03,271 [INFO] Train:
+2025-12-03 15:49:03,272 [INFO] (88555, 117)
+2025-12-03 15:49:03,272 [INFO] Backtest:
+2025-12-03 15:49:03,272 [INFO] (23037, 117)
+2025-12-03 15:49:03,272 [INFO] Final Test:
+2025-12-03 15:49:03,273 [INFO] (7524, 117)
+2025-12-03 15:49:03,336 [INFO] Columnas PROHIBIDAS removidas:
+2025-12-03 15:49:03,337 [INFO] ['order_delivered_customer_date', 'order_delivered_carrier_date', 'review_creation_date', 'review_answer_timestamp', 'review_score', 'review_comment_message', 'has_review_comment', 'review_comment_length', 'review_creation_delay_days', 'review_answer_delay_days', 'seller_cancel_rate_avg', 'customer_cancellation_history']
+2025-12-03 15:49:03,375 [INFO] Shapes tras remover leakage:
+2025-12-03 15:49:03,375 [INFO] Train:
+2025-12-03 15:49:03,375 [INFO] (88555, 99)
+2025-12-03 15:49:03,376 [INFO] Backtest:
+2025-12-03 15:49:03,376 [INFO] (23037, 99)
+2025-12-03 15:49:03,376 [INFO] Final Test:
+2025-12-03 15:49:03,376 [INFO] (7524, 99)
+2025-12-03 15:49:03,753 [INFO] Valores infinitos eliminados y reemplazados por NaN.
+2025-12-03 15:49:03,794 [INFO] Columnas numéricas detectadas:
+2025-12-03 15:49:03,794 [INFO] 82
+2025-12-03 15:49:03,794 [INFO] Columnas categóricas detectadas:
+2025-12-03 15:49:03,794 [INFO] 17
+2025-12-03 15:49:03,795 [INFO] 
+Preprocesador reconstruido sin leakage.
+2025-12-03 15:49:03,795 [INFO] Entrenando modelo limpio (sin leakage)...
+2025-12-03 15:49:18,292 [INFO] ✅ Entrenamiento completado (versión limpia).
+2025-12-03 15:49:18,292 [INFO] Evaluando modelo limpio en BACKTEST...
+2025-12-03 15:49:20,561 [INFO] MÉTRICAS BACKTEST (target extendido, sin leakage)
+2025-12-03 15:49:20,561 [INFO] -----------------------------------------------
+2025-12-03 15:49:20,562 [INFO] Accuracy:  0.9947
+2025-12-03 15:49:20,562 [INFO] Precision: 0.6695
+2025-12-03 15:49:20,562 [INFO] Recall:    0.4907
+2025-12-03 15:49:20,562 [INFO] F1-score:  0.5663
+2025-12-03 15:49:20,563 [INFO] ROC-AUC:   0.9706
+2025-12-03 15:49:20,563 [INFO] Gini:      0.9412
+2025-12-03 15:49:20,563 [INFO] 
+Matriz de confusión:
+2025-12-03 15:49:20,565 [INFO] [[22837    39]
+ [   82    79]]
+2025-12-03 15:49:20,566 [INFO] 
+Reporte de clasificación:
+2025-12-03 15:49:20,576 [INFO]               precision    recall  f1-score   support
+
+           0     0.9964    0.9983    0.9974     22876
+           1     0.6695    0.4907    0.5663       161
+
+    accuracy                         0.9947     23037
+   macro avg     0.8330    0.7445    0.7818     23037
+weighted avg     0.9941    0.9947    0.9943     23037
+2025-12-03 15:49:20,604 [INFO] [SILVER] Métricas BACKTEST (LogReg):
+2025-12-03 15:49:20,604 [INFO] {'accuracy': 0.9947475799800322, 'precision': 0.6694915254237288, 'recall': 0.4906832298136646, 'f1': 0.5663082437275986, 'roc_auc': 0.9705807925852477, 'gini': 0.9411615851704953}
+2025-12-03 15:49:20,605 [INFO] Master encontrado en:
+2025-12-03 15:49:20,605 [INFO] data\silver\orders_extended_master.csv
+2025-12-03 15:49:23,259 [INFO] Shape df_master:
+2025-12-03 15:49:23,259 [INFO] (119143, 116)
+2025-12-03 15:49:23,336 [INFO] Leakage removido. Columnas quitadas:
+2025-12-03 15:49:23,337 [INFO] ['order_delivered_customer_date', 'order_delivered_carrier_date', 'review_creation_date', 'review_answer_timestamp', 'review_score', 'review_comment_message', 'has_review_comment', 'review_comment_length', 'review_creation_delay_days', 'review_answer_delay_days', 'seller_cancel_rate_avg', 'customer_cancellation_history']
+2025-12-03 15:49:23,974 [INFO] 
+Splits listos para Sprint 3:
+2025-12-03 15:49:23,974 [INFO] Train:
+2025-12-03 15:49:23,974 [INFO] (88555, 99)
+2025-12-03 15:49:23,975 [INFO] (88555,)
+2025-12-03 15:49:23,975 [INFO] Backtest:
+2025-12-03 15:49:23,975 [INFO] (23037, 99)
+2025-12-03 15:49:23,975 [INFO] (23037,)
+2025-12-03 15:49:23,976 [INFO] Final Test:
+2025-12-03 15:49:23,976 [INFO] (7524, 99)
+2025-12-03 15:49:23,976 [INFO] (7524,)
+2025-12-03 15:49:24,022 [INFO] Detectadas 82 columnas numéricas y 17 categóricas.
+2025-12-03 15:49:24,022 [INFO] Entrenando modelo no lineal (Random Forest baseline)...
+2025-12-03 15:50:33,043 [INFO] Random Forest entrenado.
+2025-12-03 15:50:36,283 [INFO] 
+MÉTRICAS BACKTEST – Random Forest
+2025-12-03 15:50:36,284 [INFO] --------------------------------------
+2025-12-03 15:50:36,284 [INFO] Accuracy : 0.9954
+2025-12-03 15:50:36,284 [INFO] Precision: 1.0000
+2025-12-03 15:50:36,284 [INFO] Recall   : 0.3354
+2025-12-03 15:50:36,285 [INFO] F1-score : 0.5023
+2025-12-03 15:50:36,285 [INFO] AUC-ROC  : 0.9224
+2025-12-03 15:50:36,285 [INFO] Gini     : 0.8448
+2025-12-03 15:50:36,285 [INFO] 
+Matriz de confusión:
+2025-12-03 15:50:36,288 [INFO] [[22876     0]
+ [  107    54]]
+2025-12-03 15:50:36,288 [INFO] 
+Reporte de clasificación:
+2025-12-03 15:50:36,301 [INFO]               precision    recall  f1-score   support
+
+           0     0.9953    1.0000    0.9977     22876
+           1     1.0000    0.3354    0.5023       161
+
+    accuracy                         0.9954     23037
+   macro avg     0.9977    0.6677    0.7500     23037
+weighted avg     0.9954    0.9954    0.9942     23037
+2025-12-03 15:50:36,301 [INFO] Entrenando modelo avanzado (XGBoost baseline)...
+2025-12-03 15:52:13,491 [INFO] XGBoost entrenado correctamente.
+2025-12-03 15:52:19,141 [INFO] 
+MÉTRICAS BACKTEST – XGBoost Baseline
+2025-12-03 15:52:19,141 [INFO] -----------------------------------------
+2025-12-03 15:52:19,142 [INFO] Accuracy : 0.9950
+2025-12-03 15:52:19,142 [INFO] Precision: 0.6597
+2025-12-03 15:52:19,142 [INFO] Recall   : 0.5901
+2025-12-03 15:52:19,142 [INFO] F1-score : 0.6230
+2025-12-03 15:52:19,143 [INFO] AUC-ROC  : 0.9769
+2025-12-03 15:52:19,143 [INFO] Gini     : 0.9539
+2025-12-03 15:52:19,143 [INFO] 
+Matriz de confusión:
+2025-12-03 15:52:19,150 [INFO] [[22827    49]
+ [   66    95]]
+2025-12-03 15:52:19,150 [INFO] 
+Reporte de clasificación:
+2025-12-03 15:52:19,179 [INFO]               precision    recall  f1-score   support
+
+           0     0.9971    0.9979    0.9975     22876
+           1     0.6597    0.5901    0.6230       161
+
+    accuracy                         0.9950     23037
+   macro avg     0.8284    0.7940    0.8102     23037
+weighted avg     0.9948    0.9950    0.9949     23037
+2025-12-03 15:52:19,179 [INFO] 🔍 Tuning rápido del XGBoost (prioridad: RECALL)...
+2025-12-03 15:52:19,188 [INFO] Fitting 2 folds for each of 10 candidates, totalling 20 fits
+2025-12-03 15:57:45,441 [INFO] 
+Tuning rápido finalizado.
+2025-12-03 15:57:45,441 [INFO] Mejores hiperparámetros encontrados:
+2025-12-03 15:57:45,441 [INFO] {'model__subsample': 0.7, 'model__n_estimators': 150, 'model__max_depth': 4, 'model__learning_rate': 0.05, 'model__colsample_bytree': 0.7}
+2025-12-03 15:57:45,442 [INFO] 
+🏆 Modelo optimizado guardado en best_xgb.
+2025-12-03 15:57:45,442 [INFO] Evaluando modelo XGBoost TUNEADO en BACKTEST...
+2025-12-03 15:57:51,268 [INFO] 
+MÉTRICAS BACKTEST – XGBoost TUNEADO
+2025-12-03 15:57:51,269 [INFO] -----------------------------------------
+2025-12-03 15:57:51,269 [INFO] Accuracy : 0.9840
+2025-12-03 15:57:51,270 [INFO] Precision: 0.2729
+2025-12-03 15:57:51,270 [INFO] Recall   : 0.7764
+2025-12-03 15:57:51,270 [INFO] F1-score : 0.4039
+2025-12-03 15:57:51,270 [INFO] AUC-ROC  : 0.9838
+2025-12-03 15:57:51,270 [INFO] Gini     : 0.9675
+2025-12-03 15:57:51,271 [INFO] 
+Matriz de confusión:
+2025-12-03 15:57:51,276 [INFO] [[22543   333]
+ [   36   125]]
+2025-12-03 15:57:51,276 [INFO] 
+Reporte de clasificación:
+2025-12-03 15:57:51,306 [INFO]               precision    recall  f1-score   support
+
+           0     0.9984    0.9854    0.9919     22876
+           1     0.2729    0.7764    0.4039       161
+
+    accuracy                         0.9840     23037
+   macro avg     0.6357    0.8809    0.6979     23037
+weighted avg     0.9933    0.9840    0.9878     23037
+2025-12-03 15:57:51,307 [INFO]  Evaluando modelo XGBoost TUNEADO en FINAL TEST (201808)...
+2025-12-03 15:57:54,363 [INFO] 
+MÉTRICAS FINAL TEST – XGBoost TUNEADO
+2025-12-03 15:57:54,363 [INFO] Accuracy : 0.9892
+2025-12-03 15:57:54,363 [INFO] Precision: 0.5441
+2025-12-03 15:57:54,364 [INFO] Recall   : 0.7957
+2025-12-03 15:57:54,364 [INFO] F1-score : 0.6463
+2025-12-03 15:57:54,364 [INFO] AUC-ROC  : 0.9805
+2025-12-03 15:57:54,365 [INFO] Gini     : 0.9610
+2025-12-03 15:57:54,365 [INFO] 
+Matriz de confusión:
+2025-12-03 15:57:54,369 [INFO] [[7369   62]
+ [  19   74]]
+2025-12-03 15:57:54,369 [INFO] 
+Reporte de clasificación:
+2025-12-03 15:57:54,390 [INFO]               precision    recall  f1-score   support
+
+           0     0.9974    0.9917    0.9945      7431
+           1     0.5441    0.7957    0.6463        93
+
+    accuracy                         0.9892      7524
+   macro avg     0.7708    0.8937    0.8204      7524
+weighted avg     0.9918    0.9892    0.9902      7524
+2025-12-03 15:57:54,515 [INFO] Modelo final exportado en:
+2025-12-03 15:57:54,515 [INFO] ./data/gold/models/modelo_final_xgb.pkl
+2025-12-03 15:57:54,516 [INFO] [INFO] Métricas de referencia guardadas en: ./data/gold/artifacts/metrics/model_reference_metrics.json
+2025-12-03 15:57:54,517 [INFO] Carpeta creada para las gráficas:
+2025-12-03 15:57:54,517 [INFO] ./data/gold/graficos/
+2025-12-03 15:58:30,581 [INFO] Todas las imágenes fueron guardadas en:
+2025-12-03 15:58:30,582 [INFO] ./data/gold/graficos/
+2025-12-03 15:58:30,655 [INFO] [GOLD] Métricas XGB Tuned (FINAL TEST):
+2025-12-03 15:58:30,655 [INFO] {'accuracy': 0.9892344497607656, 'precision': 0.5441176470588235, 'recall': 0.7956989247311828, 'f1': 0.6462882096069869, 'roc_auc': 0.9805103004993612, 'gini': 0.9610206009987223}
+2025-12-03 15:58:30,913 [INFO] [INFO] Figura de comparación de modelos guardada en: ./data/gold/graficos/comparacion_modelos_backtest.png
+2025-12-03 15:58:30,914 [INFO] 
+📊 Comparativa de modelos generada y guardada como imagen.
+2025-12-03 15:58:31,105 [INFO] 📘 Generando notebook de evidencia: reports\20251203_154825\reporte_pipeline_20251203_154825.ipynb
+2025-12-03 15:58:33,872 [INFO] ✅ Notebook de evidencia generado correctamente.
